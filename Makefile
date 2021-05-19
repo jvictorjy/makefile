@@ -39,7 +39,7 @@ release-patch:
         && exit 1 ; \
 	fi
 
-    $(shell git push -u origin --follow-tags release/$(newVersion))
+    git push -u origin --follow-tags release/$(newVersion)
 	@echo empty := \
 	@echo substring :=".git"
 	@echo Success! Release for version $(newVersion) created. To make a pull request, access the following link: $(subst .git,${empty},${PROJECT_URL})/compare/release/$(newVersion)?expand=1
