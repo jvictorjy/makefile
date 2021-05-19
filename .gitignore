@@ -208,3 +208,5 @@ build/
 
 # Certificates
 /certificates/*
+
+Makefile
