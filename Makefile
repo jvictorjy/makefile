@@ -20,7 +20,7 @@ release-patch:
     fi
 
     $(eval newVersion = $(shell npm version patch))
-	@if [ "$(isBranchExists)" -gt $(newVersion) ]; then\
+	@if [ "$(isBranchExists)" -gt: $(newVersion) ]; then\
 	    echo "Branch release/$(newVersion) must be large than current version." \
         && echo "Stopping script." \
         && exit 1 ; \
