@@ -10,7 +10,6 @@ current-version:
 
 release-patch:
 	git fetch
-	$(eval isBranchExists = $(shell git ls-remote --exit-code --heads origin release/$(LAST_VERSION)))
 	$(eval branch = $(shell git branch --show-current))
 
     @if [ "$(branch)" != : develop ]; then\
@@ -20,8 +19,9 @@ release-patch:
     fi
 
     $(eval newVersion = $(shell npm version patch))
+    $(eval isBranchExists = $(shell git ls-remote --exit-code --heads origin release/$(newVersion)))
 
-	@if [ "$(isBranchExists)" >= : "$(newVersion)" ]; then\
+	@if [ "$(isBranchExists)" >= "$(newVersion)" ]; then\
 	    echo "Branch release/$(newVersion) must be large than current version." \
         && echo "Stopping script." \
         && exit 1 ; \
