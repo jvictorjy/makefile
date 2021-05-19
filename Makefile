@@ -12,7 +12,7 @@ release-patch:
 	git fetch
 	$(eval branch = $(shell git branch --show-current))
 
-    if [ "$(branch)" != : develop ]; then\
+    @if [ "$(branch)" != develop ]; then\
         echo "You can only create releases from develop" \
         && echo "Stopping script." \
         && exit 1 ; \
@@ -21,13 +21,13 @@ release-patch:
     $(eval newVersion = $(shell npm version patch))
     $(eval isBranchExists = $(shell git ls-remote --exit-code --heads origin release/$(newVersion)))
 
-    if ["$(isBranchExists)" >= : "$(newVersion)"]; then\
+    @if ["$(isBranchExists)" >= "$(newVersion)"]; then\
 	    echo "Branch release/$(newVersion) must be large than current version." \
         && echo "Stopping script." \
         && exit 1 ; \
 	fi
 
-	if [ "$(isBranchExists)" = "" ]; then\
+	@if [ "$(isBranchExists)" = "" ]; then\
 	    echo "Creating new branch..." \
         && git branch "release/$(newVersion)" \
         && git checkout "release/$(newVersion)" \
