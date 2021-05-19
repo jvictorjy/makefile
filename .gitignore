@@ -209,4 +209,4 @@ build/
 # Certificates
 /certificates/*
 
-./Makefile
+/Makefile
