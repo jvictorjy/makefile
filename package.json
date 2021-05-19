@@ -1,6 +1,6 @@
 {
   "name": "makefile",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "index.js",
   "repository": "git@github.com:jvictorjy/makefile.git",
   "author": "victor.ribeiro <ctl_jribeiro@uolinc.com>",
