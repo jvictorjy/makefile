@@ -209,4 +209,5 @@ build/
 # Certificates
 /certificates/*
 
-/Makefile
+/Makefile-old
+/makefile
