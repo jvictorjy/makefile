@@ -25,7 +25,7 @@ release-patch:
 		echo "Creating new branch..." \
 		&& git branch "release/$(newVersion)" \
 		&& git checkout "release/$(newVersion)" \
-		$(eval newTag=$(shell echo $(newVersion))) \
+		$(eval newTag=$(shell echo $(newVersion))); \
 	else\
 		echo "Branch release/$(newVersion) already exist." \
 		&& echo "Stopping script." \
