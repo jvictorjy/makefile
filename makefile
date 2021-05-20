@@ -18,7 +18,7 @@ release-patch:
 		&& exit 1 ; \
 	fi
 
-	$(eval newVersion = $(shell npm version patch))
+	$(eval newVersion = $(shell npm version --no-commit-hooks patch))
 	$(eval isBranchExists = $(shell git ls-remote --exit-code --heads origin release/$(newVersion)))
 
 	if [ "$(isBranchExists)" = "" ]; then\
